@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Post Create{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <h1 align="center">Post Create</h1>
+    <form method="POST" action="/blog/post_create/">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label class="form-label">Title</label>
+            <input type="text" name="title" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Content</label>
+            <input type="text" name="content" class="form-control" required>
+        </div>   
+        <div class="mb-3">
+            <label class="form-label">Category</label>
+            <select name="category" class="form-control">
+                <option selected>Choose your type</option>
+                {% for c in category %}
+                <option value="{{c.id}}">{{c.name}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Create</button>
+      </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Post Detail{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <h1 align="center">Post Detail</h1>
+    <div class="card text-center">
+        <div class="card-header">{{post.category}}</div>
+        <div class="card-body">
+        <h5 class="card-title">{{post.title}}</h5>
+        <p class="card-text">{{post.content}}</p>
+        <a href="/blog/post_update/{{post.id}}/" class="btn btn-success">Update</a>
+        <a href="/blog/post_delete/{{post.id}}/" class="btn btn-danger">Delete</a>
+        </div>
+        <div class="card-footer text-muted">{{post.created_at}}</div>
+    </div>
+</div>
+
+{% endblock %}
